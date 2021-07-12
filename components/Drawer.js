@@ -23,53 +23,17 @@ class DrawerItem extends React.Component {
         return (
           <Icon
             size={16}
-            name="shop"
-            family="GalioExtra"
+            name="home"
+            family="font-awesome"
             color={focused ? "white" : materialTheme.COLORS.MUTED}
           />
-        );
-      case "Woman":
-        return (
-          <Icon
-            size={16}
-            name="md-woman"
-            family="ionicon"
-            color={focused ? "white" : materialTheme.COLORS.MUTED}
-          />
-        );
-      case "Man":
-        return (
-          <Icon
-            size={16}
-            name="man"
-            family="entypo"
-            color={focused ? "white" : materialTheme.COLORS.MUTED}
-          />
-        );
-      case "Kids":
-        return (
-          <Icon
-            size={16}
-            name="baby"
-            family="GalioExtra"
-            color={focused ? "white" : materialTheme.COLORS.MUTED}
-          />
-        );
-      case "New Collection":
-        return (
-          <Icon
-            size={16}
-            name="grid-on"
-            family="material"
-            color={focused ? "white" : materialTheme.COLORS.MUTED}
-          />
-        );
+        );      
       case "Profile":
         return (
           <Icon
             size={16}
-            name="circle-10"
-            family="GalioExtra"
+            name="user"
+            family="font-awesome"
             color={focused ? "white" : materialTheme.COLORS.MUTED}
           />
         );
@@ -82,52 +46,10 @@ class DrawerItem extends React.Component {
             color={focused ? "white" : materialTheme.COLORS.MUTED}
           />
         );
-      case "Components":
-        return (
-          <Icon
-            size={16}
-            name="md-switch"
-            family="ionicon"
-            color={focused ? "white" : materialTheme.COLORS.MUTED}
-          />
-        );
-      case "Sign In":
-        return (
-          <Icon
-            size={16}
-            name="ios-log-in"
-            family="ionicon"
-            color={focused ? "white" : materialTheme.COLORS.MUTED}
-          />
-        );
-      case "Sign Up":
-        return (
-          <Icon
-            size={16}
-            name="md-person-add"
-            family="ionicon"
-            color={focused ? "white" : materialTheme.COLORS.MUTED}
-          />
-        );
+      
       default:
         return null;
     }
-  };
-
-  renderLabel = () => {
-    const { title } = this.props;
-
-    if (proScreens.includes(title)) {
-      return (
-        <Block middle style={styles.pro}>
-          <Text size={12} color="white">
-            PRO
-          </Text>
-        </Block>
-      );
-    }
-
-    return null;
   };
 
   render() {
@@ -159,7 +81,7 @@ class DrawerItem extends React.Component {
             >
               {title}
             </Text>
-            {this.renderLabel()}
+           
           </Block>
         </Block>
       </TouchableOpacity>
