@@ -15,6 +15,7 @@ export default class Onboarding extends React.Component {
     super(props);
     this.state = {
       progress: new Animated.Value(0),
+      status: {}
     };
   }
 
@@ -30,17 +31,18 @@ export default class Onboarding extends React.Component {
 
   render() {
     const { navigation } = this.props;
-
+    
     return (
       <Block flex style={styles.container}>
-          <Video
+          <Video                
                 source={require("../assets/videos/chicky.mp4")}
                 rate={1.0}
                 volume={1.0}
                 isMuted={false}
                 resizeMode="stretch"
+                useNativeControls
                 shouldPlay
-                isLooping
+                isLooping               
                 style={{ width: '100%', height: '50%', position: 'absolute' }}
                 /> 
         <StatusBar barStyle="light-content" />
@@ -75,7 +77,8 @@ export default class Onboarding extends React.Component {
                 shadowless
                 style={styles.button}
                 color={materialTheme.COLORS.BUTTON_COLOR}
-                onPress={() => navigation.navigate('App')}>
+                onPress={() => navigation.navigate('App')}                
+                >
                 PLAY
               </Button>
             </Block>
