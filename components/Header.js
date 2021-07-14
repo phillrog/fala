@@ -53,6 +53,7 @@ class Header extends React.Component {
   renderRight = () => {
     const { white, title, navigation } = this.props;
 
+    return;
     if (title === 'Title') {
       return [
         <ChatButton key='chat-title' navigation={navigation} isWhite={white} />,
@@ -60,50 +61,50 @@ class Header extends React.Component {
       ]
     }
 
-    switch (title) {
-      case 'Home':
-        return ([
-          <ChatButton key='chat-home' navigation={navigation} isWhite={white} />,
-          <BasketButton key='basket-home' navigation={navigation} isWhite={white} />
-        ]);
-      case 'Deals':
-        return ([
-          <ChatButton key='chat-categories' navigation={navigation} />,
-          <BasketButton key='basket-categories' navigation={navigation} />
-        ]);
-      case 'Categories':
-        return ([
-          <ChatButton key='chat-categories' navigation={navigation} isWhite={white} />,
-          <BasketButton key='basket-categories' navigation={navigation} isWhite={white} />
-        ]);
-      case 'Category':
-        return ([
-          <ChatButton key='chat-deals' navigation={navigation} isWhite={white} />,
-          <BasketButton key='basket-deals' navigation={navigation} isWhite={white} />
-        ]);
-      case 'Profile':
-        return ([
-          <ChatButton key='chat-profile' navigation={navigation} isWhite={white} />,
-          <BasketButton key='basket-deals' navigation={navigation} isWhite={white} />
-        ]);
-      case 'Product':
-        return ([
-          <SearchButton key='search-product' navigation={navigation} isWhite={white} />,
-          <BasketButton key='basket-product' navigation={navigation} isWhite={white} />
-        ]);
-      case 'Search':
-        return ([
-          <ChatButton key='chat-search' navigation={navigation} isWhite={white} />,
-          <BasketButton key='basket-search' navigation={navigation} isWhite={white} />
-        ]);
-      case 'Settings':
-        return ([
-          <ChatButton key='chat-search' navigation={navigation} isWhite={white} />,
-          <BasketButton key='basket-search' navigation={navigation} isWhite={white} />
-        ]);
-      default:
-        break;
-    }
+    // switch (title) {
+    //   case 'Home':
+    //     return ([
+    //       <ChatButton key='chat-home' navigation={navigation} isWhite={white} />,
+    //       <BasketButton key='basket-home' navigation={navigation} isWhite={white} />
+    //     ]);
+      // case 'Deals':
+      //   return ([
+      //     <ChatButton key='chat-categories' navigation={navigation} />,
+      //     <BasketButton key='basket-categories' navigation={navigation} />
+      //   ]);
+      // case 'Categories':
+      //   return ([
+      //     <ChatButton key='chat-categories' navigation={navigation} isWhite={white} />,
+      //     <BasketButton key='basket-categories' navigation={navigation} isWhite={white} />
+      //   ]);
+      // case 'Category':
+      //   return ([
+      //     <ChatButton key='chat-deals' navigation={navigation} isWhite={white} />,
+      //     <BasketButton key='basket-deals' navigation={navigation} isWhite={white} />
+      //   ]);
+      // case 'Profile':
+      //   return ([
+      //     <ChatButton key='chat-profile' navigation={navigation} isWhite={white} />,
+      //     <BasketButton key='basket-deals' navigation={navigation} isWhite={white} />
+      //   ]);
+      // case 'Product':
+      //   return ([
+      //     <SearchButton key='search-product' navigation={navigation} isWhite={white} />,
+      //     <BasketButton key='basket-product' navigation={navigation} isWhite={white} />
+      //   ]);
+      // case 'Search':
+      //   return ([
+      //     <ChatButton key='chat-search' navigation={navigation} isWhite={white} />,
+      //     <BasketButton key='basket-search' navigation={navigation} isWhite={white} />
+      //   ]);
+      // case 'Settings':
+      //   return ([
+      //     <ChatButton key='chat-search' navigation={navigation} isWhite={white} />,
+      //     <BasketButton key='basket-search' navigation={navigation} isWhite={white} />
+      //   ]);
+    //   default:
+    //     break;
+    // }
   }
 
   renderSearch = () => {
@@ -113,8 +114,8 @@ class Header extends React.Component {
         right
         color="black"
         style={styles.search}
-        placeholder="What are you looking for?"
-        onFocus={() => navigation.navigate('Pro')}
+        placeholder="Pesquisar"
+        
         iconContent={<Icon size={16} color={theme.COLORS.MUTED} name="magnifying-glass" family="entypo" />}
       />
     )
@@ -125,16 +126,16 @@ class Header extends React.Component {
 
     return (
       <Block row style={styles.tabs}>
-        <Button shadowless style={[styles.tab, styles.divider]} onPress={() => navigation.navigate('Pro')}>
+        <Button shadowless style={[styles.tab, styles.divider]}>
           <Block row middle>
             <Icon name="grid" family="feather" style={{ paddingRight: 8 }} />
-            <Text size={16} style={styles.tabTitle}>{tabTitleLeft || 'Categories'}</Text>
+            <Text size={16} style={styles.tabTitle}>{tabTitleLeft || 'Categorias'}</Text>
           </Block>
         </Button>
-        <Button shadowless style={styles.tab} onPress={() => navigation.navigate('Pro')}>
+        <Button shadowless style={styles.tab}>
           <Block row middle>
-            <Icon size={16} name="camera-18" family="GalioExtra" style={{ paddingRight: 8 }} />
-            <Text size={16} style={styles.tabTitle}>{tabTitleRight || 'Best Deals'}</Text>
+            <Icon size={16} name="star" family="font-awesome" style={{ paddingRight: 8 }} />
+            <Text size={16} style={styles.tabTitle}>{tabTitleRight }</Text>
           </Block>
         </Button>
       </Block>
@@ -170,7 +171,7 @@ class Header extends React.Component {
           title={title}
           style={styles.navbar}
           transparent={transparent}
-          right={this.renderRight()}
+          
           rightStyle={{ alignItems: 'center' }}
           leftStyle={{ flex: 0.3, paddingTop: 2  }}
           leftIconName={(back ? 'chevron-left' : 'navicon')}

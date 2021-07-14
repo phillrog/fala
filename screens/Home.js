@@ -6,6 +6,7 @@ import { Icon, Product } from '../components/';
 
 const { width } = Dimensions.get('screen');
 import products from '../constants/products';
+import SkeletonPlaceholder from "react-native-skeleton-placeholder";
 
 export default class Home extends React.Component {
   renderSearch = () => {
@@ -64,11 +65,43 @@ export default class Home extends React.Component {
   }
 
   render() {
+    const isLoading = true;
+    if(isLoading) {
+      return (
+        <Block flex center style={styles.skeletons}>
+          {
+            this.loading(3)
+          }
+      </Block>
+      )
+   }
     return (
       <Block flex center style={styles.home}>
-        {this.renderProducts()}
+        {(this.renderProducts())}
       </Block>
     );
+  }
+
+  loading(quantidade) {
+    return Array.from({length: quantidade}, (v, k) => (
+      <Block flex style={styles.skeleton}>
+      <SkeletonPlaceholder >
+        <SkeletonPlaceholder.Item flexDirection="row" alignItems="center">
+          <SkeletonPlaceholder.Item style={styles.skeletonItem} width={80} height={80} borderRadius={50} />
+          <SkeletonPlaceholder.Item style={styles.skeletonItem} marginLeft={20}>
+            <SkeletonPlaceholder.Item width={170} height={20} borderRadius={4} />
+            <SkeletonPlaceholder.Item
+              marginTop={6}
+              width={80}
+              height={20}
+              borderRadius={4}
+            />
+          </SkeletonPlaceholder.Item>
+        </SkeletonPlaceholder.Item>
+      </SkeletonPlaceholder>
+      </Block>
+    ));
+    
   }
 }
 
@@ -120,4 +153,16 @@ const styles = StyleSheet.create({
     width: width - theme.SIZES.BASE * 2,
     paddingVertical: theme.SIZES.BASE * 2,
   },
+  skeletons: {
+    width: width - theme.SIZES.BASE * 2,
+    paddingVertical: theme.SIZES.BASE * 2,    
+  },
+  skeleton: {
+    padding: 30,
+    
+  },
+  skeletonItem: {
+    backgroundColor: 'red'    
+  }
+
 });
